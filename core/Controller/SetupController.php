@@ -111,7 +111,7 @@ class SetupController {
 		}
 		\OC::$server->getIntegrityCodeChecker()->runInstanceVerification();
 
-		if (is_file(\OC::$configDir.'/CAN_INSTALL')) {
+		if (\OC_Util::getChannel() !== 'git' && is_file(\OC::$configDir.'/CAN_INSTALL')) {
 			unlink(\OC::$configDir.'/CAN_INSTALL');
 		}
 
